@@ -1,2 +1,2 @@
 # webjumpcutter
-web application based on carykh/jumpcutter
+web application based on (jumpcutter)[carykh/jumpcutter]
