@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>WebJumpCutter</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="">
+   </head>
+   <body>
+      <!--[if lt IE 7]>
+         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="about:blank">upgrade your browser</a> to improve your experience.</text></p>
+      <![endif]-->
+      <text style="font-size:12px; color: darkgrey">{{ gdpr }}!</text><br>
+      <text style="font-size:69px;">WebJumpCutter</text><br>
+      <text style="font-size:23px;">online frontend to video squeezer</text><br>
+      <form action="/process" method="post" enctype="multipart/form-data">
+         <p>Select video file to be processed (required):<input type="file" accept="video/*" required/></text></p>
+         <p>Silence Threshold:<input type="number" name="threshold" step="0.01" min="0" max="1"/><text style="font-size:10px"> &nbsp;&nbsp;&nbsp;the volume amount that frames' audio needs to surpass to be consider ''sounded'' It ranges from 0 (silence) to 1 (max volume)</text></p>
+         <p>Speed of spoken frames:<input type="number" name="sounded" step="0.01" min="0.01" max="10"/><text style="font-size:10px"> &nbsp;&nbsp;&nbsp;the speed that sounded (spoken) frames should be played at. Typically 1.</text></p>
+         <p>Speed of silent frames:<input type="number" name="silent" step="0.01" min="0" max="999999"/><text style="font-size:10px"> &nbsp;&nbsp;&nbsp;the speed that silent frames should be played at. 999999 for full jumpcutting.</text></p>
+         <p>Context margin:<input type="number" name="margin" step="1" min="0"/><text style="font-size:10px"> &nbsp;&nbsp;&nbsp;some silent frames adjacent to sounded frames are included to provide context. How many frames on either the side of speech should be included? That's this variable.</text></p>
+         <p><input type="submit" value="JumpCut!"/></text></p>
+     </form>
+   <footer style="font-size: 8px; color: blueviolet"><p>Based on jumpcutter by carykh</text></p><p>First Flask project of mardab</text></p><p>2019</text></p></footer>
+   </body>
+</html>

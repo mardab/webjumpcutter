@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Flask: manual",
+            "type": "python",
+            "request": "launch",
+            "program": "${cwd}/__init__.py",
+            "console": "integratedTerminal",
+            "env": {"FLASK_APP":"__init__.py","FLASK_ENV":"development"}
+        },
+        {
+            "name": "Flask: Micro$oft",
+            "type": "python",
+            "request": "launch",
+            "module": "flask",
+            "env": {"FLASK_APP":"__init__.py"},
+            "args": [
+                "run",
+                "--no-debugger",
+                "--no-reload"
+            ]
+        }
+    ]
+}

@@ -4,4 +4,4 @@ scipy
 numpy
 pytube
 Flask
-pylint
+pexpect
