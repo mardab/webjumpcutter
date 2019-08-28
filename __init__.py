@@ -1,4 +1,5 @@
 import os, flask, subprocess, logging
+from werkzeug import secure_filename
 app = flask.Flask(__name__)
 
 @app.route("/", methods = ['GET'])
@@ -12,10 +13,12 @@ def input_page():
 @app.route("/process", methods = ['POST'])
 def output_page():
    form_params = flask.request.form
-   video_file = flask.request.files['video'].stream.read()
+   video_data = flask.request.files['video'].save()
+   ifname = flask.secure_filename(video_file.filename)
+   video_file = video_data.save(os.path.join(os.environ.get('WJC_UPLOAD_FOLDER'), ifname))
    #file_content = video_file.stream.read().decode("utf-8")
    process_result = process(video_file, form_params)
-   response = flask.make_response(process_result).headers["Content-Disposition"] = "attachment; filename="+video_file.filename
+   response = flask.make_response(process_result).headers["Content-Disposition"] = "attachment; filename="+ifname
    response.headers["Cache-Control"] = "must-revalidate"
    response.headers["Pragma"] = "must-revalidate"
    return response
