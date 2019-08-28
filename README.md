@@ -3,7 +3,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/mardab/webjumpcutter.svg)]
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]
 
-A simple web application based on [carykh's jumpcutter](https://github.com/carykh/jumpcutter)
+A simple web application based on [carykh's jumpcutter](https://github.com/carykh/jumpcutter) with 3 lines of difference from original script.
 
 Also my first foray into Flask and *proper* web development
 
@@ -15,7 +15,7 @@ Also my first foray into Flask and *proper* web development
 - packages from requirements.txt
 - ffmpeg
 # TODO
-- finish rewriting a proper jumpcutter handler with pexpect
+- finish rewriting a proper jumpcutter handler
 - create docker images repository, then automate
 - introduce mongodb support for storing usage statistics
 - include intermediate queue for large video file support

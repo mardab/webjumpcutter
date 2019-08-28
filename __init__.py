@@ -1,4 +1,4 @@
-import os, flask, pexpect, logging
+import os, flask, subprocess, logging
 app = flask.Flask(__name__)
 
 @app.route("/", methods = ['GET'])
@@ -12,16 +12,17 @@ def input_page():
 @app.route("/process", methods = ['POST'])
 def output_page():
    form_params = flask.request.form
-   video_file = flask.request.files['data_file']
-   file_content = video_file.stream.read().decode("utf-8")
-   result = process(file_content)
-   response = flask.make_response(result)
-   response.headers["Content-Disposition"] = "attachment; filename="+video_file.filename
-   return
+   video_file = flask.request.files['video'].stream.read()
+   #file_content = video_file.stream.read().decode("utf-8")
+   process_result = process(video_file, form_params)
+   response = flask.make_response(process_result).headers["Content-Disposition"] = "attachment; filename="+video_file.filename
+   response.headers["Cache-Control"] = "must-revalidate"
+   response.headers["Pragma"] = "must-revalidate"
+   return response
 
-def process():
-
-
-
+def process(input_file, params):
+   processed_video = input_file
+   return processed_video
+   
 if __name__ == '__main__':
    app.run('0.0.0.0',8080)
