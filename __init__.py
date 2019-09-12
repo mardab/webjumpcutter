@@ -14,7 +14,7 @@ def input_page():
 def output_page():
    form_params = flask.request.form
    video_data = flask.request.files['video'].save()
-   ifname = flask.secure_filename(video_file.filename)
+   ifname = secure_filename(video_file.filename)
    video_file = video_data.save(os.path.join(os.environ.get('WJC_UPLOAD_FOLDER'), ifname))
    #file_content = video_file.stream.read().decode("utf-8")
    process_result = process(video_file, form_params)
